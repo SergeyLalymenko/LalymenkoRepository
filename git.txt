@@ -1,0 +1,5 @@
+git init
+git add .
+git commit -m "L.S._11"
+git remote add origin https://github.com/SergeyLalymenko/LalymenkoRepository.git
+git push -u origin master
