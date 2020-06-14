@@ -1,0 +1,32 @@
+.container{
+    display:inline-block;
+    border:1px solid rgb(200,200,200);
+    border-radius:3px;
+}
+.title-line{
+    display:flex;
+    flex-direction: row;
+    padding-right:10px;
+    border-bottom:1px solid rgb(200,200,200);
+}
+.body-line{
+    display:flex;
+    flex-direction: row;
+    padding-top:20px;
+    padding-left:10px;
+    padding-bottom:30px;
+}
+.invisible{
+    display:none;
+}
+.title{
+    margin-top:10px;
+    margin-left:10px;
+    color: rgb(50,50,170);
+}
+.title:hover{
+    background:rgb(200,200,200);
+}
+.active{
+    background:rgb(150,150,150);
+}
