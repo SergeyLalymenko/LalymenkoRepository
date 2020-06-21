@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>L.S._01</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" async></script>
+    </head>
+    <body>
+        <div class="flex-row">
+            <div>
+                <ul id="ul">
+                </ul>
+            </div>
+            <div id="photos">
+            </div>
+        </div>
+        <script type="text/template" id="albums-template">
+            <li class="{{class}}" id="{{albumId}}">
+                {{text}}
+            </li>
+        </script>
+        <script type="text/template" id="photos-template">
+            <img src="{{src}}" class="{{class}}">
+        </script>
+    </body>
+</html>
