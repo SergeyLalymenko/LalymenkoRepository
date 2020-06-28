@@ -6,6 +6,7 @@ function init(){
 }
 
 function sendGetRequest(){
+    container.innerHTML = '';
     fetch(URL)
         .then((res) => res.json())
         .then((data) => renderData(data))
@@ -59,10 +60,10 @@ function onContainerClick(e){
 }
 
 function deleteSticker(e){
-    e.target.parentElement.remove();
     fetch(URL + '/' + e.target.parentElement.id,{
         method: 'DELETE',
     })
+    .then(() => e.target.parentElement.remove())
 }
 
 function onTextareasFocusout(e){
@@ -82,6 +83,7 @@ function sendPutRequest(e){
         },
         body: JSON.stringify(sticker),
     })
+    .then(() => sendGetRequest());
 }
 
 
