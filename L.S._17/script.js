@@ -9,9 +9,9 @@ function sendGetRequest(){
     fetch(URL)
         .then((res) => res.json())
         .then((data) => renderData(data))
-        // .then(() => {
-        //     textareas = document.querySelectorAll('.textarea');
-        // });
+        .then(() => {
+            textareas = document.querySelectorAll('.textarea');
+        });
 }
 
 function renderData(data){
