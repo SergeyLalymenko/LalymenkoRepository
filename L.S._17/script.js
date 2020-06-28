@@ -5,14 +5,14 @@ function init(){
     sendGetRequest();
 }
 
-function sendGetRequest(){
-    fetch(URL)
-        .then((res) => res.json())
-        .then((data) => renderData(data))
-        .then(() => {
-            textareas = document.querySelectorAll('.textarea');
-        });
-}
+// function sendGetRequest(){
+//     fetch(URL)
+//         .then((res) => res.json())
+//         .then((data) => renderData(data))
+//         .then(() => {
+//             textareas = document.querySelectorAll('.textarea');
+//         });
+// }
 
 function renderData(data){
     data.forEach((element) => {
@@ -32,15 +32,15 @@ function onBtnClick(){
     let sticker = {
         description: '',
     }
-    fetch(URL,{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(sticker),
-    })
-    .then((res) => res.json())
-    .then((data) => renderSticker(data));
+    // fetch(URL,{
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(sticker),
+    // })
+    // .then((res) => res.json())
+    // .then((data) => renderSticker(data));
 }
 
 function renderSticker(element){
@@ -60,9 +60,9 @@ function onContainerClick(e){
 
 function deleteSticker(e){
     e.target.parentElement.remove();
-    fetch(URL + '/' + e.target.parentElement.id,{
-        method: 'DELETE',
-    })
+    // fetch(URL + '/' + e.target.parentElement.id,{
+    //     method: 'DELETE',
+    // })
 }
 
 function onTextareasFocusout(e){
