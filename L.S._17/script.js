@@ -1,6 +1,5 @@
 let URL = 'https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/stickers';
 let CLASS_TEXTAREA = 'textarea';
-let TAG_NAME_TEXTATEA = 'TEXTAREA';
 let TAG_NAME_BUTTON = 'BUTTON';
 
 
@@ -12,10 +11,7 @@ function sendGetRequest(){
     container.innerHTML = '';
     fetch(URL)
         .then((res) => res.json())
-        .then((data) => renderData(data))
-        .then(() => {
-            textareas = document.querySelectorAll('.textarea');
-        });
+        .then((data) => renderData(data));
 }
 
 function renderData(data){
@@ -58,19 +54,19 @@ function generateHtml(template){
 
 function onContainerClick(e){
     if(e.target.tagName == TAG_NAME_BUTTON){
-        deleteSticker(e);
+        deleteSticker(e.target.parentElement.id);
     }
 }
 
-function deleteSticker(e){
-    fetch(URL + '/' + e.target.parentElement.id,{
+function deleteSticker(id){
+    fetch(URL + '/' + id,{
         method: 'DELETE',
     })
-    .then(() => e.target.parentElement.remove())
+    .then(() => document.getElementById(id).remove())
 }
 
 function onTextareasFocusout(e){
-    if(e.target.tagName == TAG_NAME_TEXTATEA){
+    if(e.target.classList.contains(CLASS_TEXTAREA)){
         sendPutRequest(e);
     }
 }
@@ -88,7 +84,6 @@ function sendPutRequest(e){
     })
     .then(() => sendGetRequest());
 }
-
 
 
 
