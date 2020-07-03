@@ -23,17 +23,24 @@ function renderData(data){
 }
 
 function getReadyTemplate($element){
-    if($($element).attr('isDone') == true){
-        return $formTemplate
+    let classFormTemplate = getClassFormTemplate($element);
+    return classFormTemplate
         .replace('{{id}}', $element.id)
-        .replace('{{text}}', $element.title)
+        .replace('{{text}}', $element.title);
+}
+
+function getClassFormTemplate($element){
+    if(checkIsDone($element)){
+        return $formTemplate
         .replace('{{class}}', CLASS_YELLOW_GREEN_COLOR);
     } else{
         return $formTemplate
-        .replace('{{id}}', $element.id)
-        .replace('{{text}}', $element.title)
         .replace('{{class}}', CLASS_YELLOW_COLOR);
     }
+}
+
+function checkIsDone($element){
+    return $($element).attr('isDone') == true;
 }
 
 function onListClick(e){
