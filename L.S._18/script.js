@@ -22,15 +22,15 @@ function renderData(data){
     })
 }
 
-function getReadyTemplate($element){
-    let classFormTemplate = getClassFormTemplate($element);
+function getReadyTemplate(element){
+    let classFormTemplate = getClassFormTemplate(element);
     return classFormTemplate
-        .replace('{{id}}', $element.id)
-        .replace('{{text}}', $element.title);
+        .replace('{{id}}', element.id)
+        .replace('{{text}}', element.title);
 }
 
-function getClassFormTemplate($element){
-    if(checkIsDone($element)){
+function getClassFormTemplate(element){
+    if(checkIsDone(element)){
         return $formTemplate
         .replace('{{class}}', CLASS_YELLOW_GREEN_COLOR);
     } else{
@@ -39,8 +39,8 @@ function getClassFormTemplate($element){
     }
 }
 
-function checkIsDone($element){
-    return $($element).attr('isDone') == true;
+function checkIsDone(element){
+    return $(element).attr('isDone') == true;
 }
 
 function onListClick(e){
@@ -49,16 +49,26 @@ function onListClick(e){
         sendGetRequestElement($(e.target));
     } else if($(e.target).hasClass(CLASS_DELETE_BUTTON)){
         deleteElement($(e.target).parent());
-        sendDeleteRequestElement($(e.target).parent().attr('id'));
+        sendDeleteRequestElement($(e.target).parent().data('id'));
     }
 }
+
+// function onToggleListClick(e){
+//     toggleGreenColor($(e.target));
+//     sendGetRequestElement($(e.target));
+// }
+
+// function onDeleteBtnClick(e){
+//     deleteElement($(e.target).parent());
+//     sendDeleteRequestElement($(e.target).parent().attr('id'));
+// }
 
 function toggleGreenColor($element){
     $element.toggleClass(CLASS_GREEN_COLOR);
 }
 
 function sendGetRequestElement($element){
-    fetch(URL + '/' + $element.attr('id'))
+    fetch(URL + '/' + $element.attr('data-id'))
         .then((res) => res.json())
         .then((data) => changeElement(data));
 }
@@ -104,8 +114,8 @@ function onBtnClick(){
     .then((data) => addTodo(data));
 }
 
-function addTodo($element){
-    let readyTemplate = getReadyTemplate($element);
+function addTodo(element){
+    let readyTemplate = getReadyTemplate(element);
     $list.html($list.html() + readyTemplate);
 }
 
@@ -117,6 +127,8 @@ const $addBtn = $('#main-button');
 
 
 
+// $list.on('click', '.' + CLASS_YELLOW_COLOR, onToggleListClick);
+// $list.on('click', '.' + CLASS_DELETE_BUTTON, onDeleteBtnClick);
 $list.on('click', onListClick);
 $addBtn.on('click', onBtnClick);
 init();
