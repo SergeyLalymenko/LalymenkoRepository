@@ -43,25 +43,16 @@ function checkIsDone(element){
     return $(element).attr('isDone') == true;
 }
 
-function onListClick(e){
-    if($(e.target).hasClass(CLASS_YELLOW_COLOR)){
-        toggleGreenColor($(e.target));
-        sendGetRequestElement($(e.target));
-    } else if($(e.target).hasClass(CLASS_DELETE_BUTTON)){
-        deleteElement($(e.target).parent());
-        sendDeleteRequestElement($(e.target).parent().data('id'));
-    }
+function onToggleListClick(e){
+    toggleGreenColor($(e.target));
+    sendGetRequestElement($(e.target));
 }
 
-// function onToggleListClick(e){
-//     toggleGreenColor($(e.target));
-//     sendGetRequestElement($(e.target));
-// }
-
-// function onDeleteBtnClick(e){
-//     deleteElement($(e.target).parent());
-//     sendDeleteRequestElement($(e.target).parent().attr('id'));
-// }
+function onDeleteBtnClick(e){
+    e.stopPropagation();
+    deleteElement($(e.target).parent());
+    sendDeleteRequestElement($(e.target).parent().attr('data-id'));
+}
 
 function toggleGreenColor($element){
     $element.toggleClass(CLASS_GREEN_COLOR);
@@ -127,8 +118,7 @@ const $addBtn = $('#main-button');
 
 
 
-// $list.on('click', '.' + CLASS_YELLOW_COLOR, onToggleListClick);
-// $list.on('click', '.' + CLASS_DELETE_BUTTON, onDeleteBtnClick);
-$list.on('click', onListClick);
+$list.on('click', '.' + CLASS_YELLOW_COLOR, onToggleListClick);
+$list.on('click', '.' + CLASS_DELETE_BUTTON, onDeleteBtnClick);
 $addBtn.on('click', onBtnClick);
 init();
