@@ -15,8 +15,9 @@ function sendGetRequest(){
 }
 
 function renderData(data){
-  $tbody.html('<tr><td>John</td><td>Smith</td><td>3800000000</td><td>John@gmail.com</td></tr>');
-    $(data).each((index, element) => {
+  userData = [];
+  $tbody.html('');
+    data.forEach((element) => {
         renderUser(element);
     })
 }
@@ -39,8 +40,8 @@ function onDeleteBtnClick(e){
     sendDeleteRequestUser($(e.target).parent().parent().attr('data-id'));
 }
 
-function deleteUser($element){
-    $element.remove();
+function deleteUser(element){
+    element.remove();
 }
 
 function sendDeleteRequestUser($elementId){
@@ -50,6 +51,7 @@ function sendDeleteRequestUser($elementId){
 }
 
 function renderUser(element){
+    userData.push(element);
     let readyTemplate = getReadyTemplate(element);
     $tbody.append(readyTemplate);
 }
@@ -58,12 +60,9 @@ function renderUser(element){
 const $formTemplate = $('#form-template').html();
 const $tbody = $( '#users tbody' );
 const $addBtn = $('#create-user');
+let userData = [];
 
 
-
-$tbody.on('click', '.' + CLASS_DELETE_BUTTON, onDeleteBtnClick);
-
-init();
 
 $(function() {
   let elementId,
@@ -78,9 +77,8 @@ $(function() {
 
   function onUserClick(e){
     elementId = $(e.target).parent().attr('data-id');
-    fetch(URL + '/' + elementId)
-    .then((res) => res.json())
-    .then((data) => setValues(data, $(e.target).parent().attr('data-id')));
+    let element = userData.find((element) => element.id == elementId);
+    setValues(element);
   }
 
   function setValues(element){
@@ -161,8 +159,12 @@ $(function() {
     addUser();
   });
 
+  init();
+
   $addBtn.button().on('click', function() {
     dialog.dialog('open');
   });
   $tbody.on('click', '.' + CLASS_TD, onUserClick);
+  $tbody.on('click', '.' + CLASS_DELETE_BUTTON, onDeleteBtnClick);
+  
 } );
