@@ -4,12 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>L.S._01</title>
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
         <link rel="stylesheet" href="style.css">
-        <script
-            src="http://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-            crossorigin="anonymous" defer></script>
-        <script src="script.js" async></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js" defer></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script>
+        <script src="script.js" defer></script>
     </head>
     <body>
         <button id="addBtn">Add sticker</button>
@@ -19,7 +18,8 @@
         <script type="text/template" id="form-template">
             <div class="main-div" id="{{id}}">
                 <textarea class="{{class}}" placeholder="Введите текст">{{description}}</textarea>
-                <button class='delete-button'>DELETE</button>
+                <button class="delete-button">DELETE</button>
+                <p class="drag">Drag me</p>
             </div>
         </script>
     </body>

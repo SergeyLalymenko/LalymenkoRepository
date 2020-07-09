@@ -1,6 +1,6 @@
 let URL = 'https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/stickers';
 let CLASS_TEXTAREA = 'textarea';
-let TAG_NAME_BUTTON = 'BUTTON';
+let CLASS_BUTTON = 'delete-button';
 
 
 function init(){
@@ -53,7 +53,7 @@ function generateHtml(template){
 }
 
 function onContainerClick(e){
-    if(e.target.tagName == TAG_NAME_BUTTON){
+    if(e.target.classList.contains(CLASS_BUTTON)){
         deleteSticker(e.target.parentElement.id);
     }
 }
@@ -87,7 +87,7 @@ function sendPutRequest(e){
 
 
 
-let addBtn = document.getElementById('addBtn');
+let addBtn = $('#addBtn');
 let container = document.getElementById('container');
 let formTemplate = document.getElementById('form-template').innerHTML;
 let textareas = document.querySelector('.div-container');
