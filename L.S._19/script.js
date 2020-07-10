@@ -51,9 +51,17 @@ function sendDeleteRequestUser($elementId){
 }
 
 function renderUser(element){
-    userData.push(element);
+    pushElement(element);
     let readyTemplate = getReadyTemplate(element);
-    $tbody.append(readyTemplate);
+    generateHtml(readyTemplate);
+}
+
+function pushElement(element){
+  userData.push(element);
+}
+
+function generateHtml(template){
+  $tbody.append(template);
 }
 
 
