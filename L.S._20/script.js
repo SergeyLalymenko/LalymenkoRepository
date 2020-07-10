@@ -51,18 +51,22 @@ function onBtnClick(){
 }
 
 function renderSticker(element){
-    stickersData.push(element);
     let readyTemplate = getReadyTemplate(element);
     generateHtml(readyTemplate);
     addStyles(element);
+    pushElement(element);
+}
+
+function pushElement(element){
+    stickersData.push(element);
 }
 
 function addStyles(element){
     $container.children().eq(-1)
-        .css('height', $(element).attr('height') + 'px')
-        .css('width', $(element).attr('width') + 'px')
-        .css('left', $(element).attr('x') + 'px')
-        .css('top', $(element).attr('y') + 'px');
+        .css('height', element.height + 'px')
+        .css('width', element.width + 'px')
+        .css('left', element.x + 'px')
+        .css('top', element.y + 'px');
 }
 
 function generateHtml(template){
