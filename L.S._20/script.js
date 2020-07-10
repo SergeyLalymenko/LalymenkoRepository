@@ -26,8 +26,8 @@ function renderData(data){
 
 function getReadyTemplate(element){
     return readyTemplate = $formTemplate
-        .replace('{{description}}', $(element).attr('description'))
-        .replace('{{id}}', $(element).attr('id'))
+        .replace('{{description}}', element.description)
+        .replace('{{id}}', element.id)
         .replace('{{class}}', CLASS_TEXTAREA);
 }
 
@@ -113,12 +113,12 @@ function getStickerCss($element){
 }
 
 function onStickerMouseup(e){
-    let element = stickersData.find((item) => item.id == $(e.target).parent().attr('id'));
+    let element = stickersData.find((item) => item.id == e.target.parentElement.id);
     let sticker = {
-        description: $(element).attr('description'),
+        description: element.description,
         ...getStickerCss($(e.target)),
     }
-    fetch(URL + '/' + $(e.target).parent().attr('id'),{
+    fetch(URL + '/' + e.target.parentElement.id,{
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -145,4 +145,3 @@ $container.on('mouseup', '.' + CLASS_RESIZABLE, onStickerMouseup);
 
 
 init();
-
