@@ -81,9 +81,10 @@ function changeElement(element){
 
 function onBtnClick(){
     let todo = {
-        title: 'JS is my life',
+        title: $input.val(),
         isDone: false,
     }
+    $input.val('');
     rest.create(todo)
         .then((data) => addTodo(data));
 }
@@ -98,6 +99,7 @@ function addTodo(element){
 const $list = $('#list');
 const $formTemplate = $('#form-template').html();
 const $addBtn = $('#main-button');
+const $input = $('#input');
 
 
 
