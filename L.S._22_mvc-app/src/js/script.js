@@ -1,4 +1,3 @@
-const URL = 'https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/todos';
 const CLASS_YELLOW_COLOR = 'yellow-color';
 const CLASS_GREEN_COLOR = 'green-color';
 const CLASS_YELLOW_GREEN_COLOR = 'yellow-color green-color';
