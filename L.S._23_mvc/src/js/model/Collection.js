@@ -40,13 +40,13 @@ class Collection{
             })
     }
 
-    change($element){
-        const model = this.todos.find((item) => item.id == $element.data('id'));
+    change(id){
+        const model = this.todos.find((item) => item.id == id);
         let todo = {
             isDone: !model.isDone,
-            title: $element.attr('title'),
+            title: model.title,
         }
-        return model.change(todo, $element.data('id'))
+        return model.change(todo)
             .then((res) => res.json())
             .then((data) => {
                 let index = this.todos.indexOf(model);

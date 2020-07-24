@@ -26,8 +26,8 @@ class Controller{
             })
     }
 
-    onChange($element){
-        this.collection.change($element)
+    onChange(id){
+        this.collection.change(id)
             .then(() => {
                 this.list.render(this.collection.todos)
             })

@@ -50,7 +50,7 @@ class List{
     }
 
     onLiClick(e){
-        let $element = $(e.target);
-        this.config.onChange($element);
+        let id = $(e.target).data('id');
+        this.config.onChange(id);
     }
 }

@@ -23,8 +23,8 @@ class Model{
         })
     }
 
-    change(todo, id){
-        return fetch(this.baseUrl + '/' + id,{
+    change(todo){
+        return fetch(this.baseUrl + '/' + this.id,{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
