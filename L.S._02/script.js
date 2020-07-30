@@ -14,6 +14,9 @@ function calcDivision(firstArgument, secondArgument){
     let resultDivision= +firstArgument / +secondArgument;
     console.log('Результат: ' + firstArgument + '/' + secondArgument + ' = ' + resultDivision);
 }
+
+//---------------------------------------------------------------------------
+
 let firstNumber = prompt('Введите первое число');
 let secondNumber = prompt('Введите второе число');
 calcSum(firstNumber, secondNumber);
