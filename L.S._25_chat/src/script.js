@@ -34,7 +34,7 @@ socket.onopen = () => {
     const message = {
         type: 'message',
         payload: {
-            username: 'Sergey',
+            username: inputName.value,
             message: 'Connected',
         }
     }
@@ -45,10 +45,6 @@ socket.onmessage = (e) => {
     let readyTemplate = getReadyTemplate(JSON.parse(e.data));
     $list.append(readyTemplate);
     
-}
-
-socket.onclose = (e) => {
-    console.log('close', e);
 }
 
 
