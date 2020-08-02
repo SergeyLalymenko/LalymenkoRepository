@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="chat">
+            <ul id="list" class="list">
+
+            </ul>
+        </div>
+        <div class="buttons">
+            <input id="input-name" class="input-name" type="text" value="Sergey" placeholder="Name"></input>
+            <input id="input-message" class="input-message" type="text" placeholder="Message"></input>
+            <button id="button" class="button-send">Send</button>
+        </div>
+        <script type="text/template" id="form-template">
+            <li class="li">
+                {{name}}: {{message}}
+            </li>
+        </script>
+    </body>
+</html>
