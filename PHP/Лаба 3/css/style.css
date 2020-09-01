@@ -1,0 +1,18 @@
+form {
+    display: inline;
+}
+
+.form-list {
+    text-align: center;
+}
+.update-btn {
+    margin-left: 3rem;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
