@@ -1,0 +1,14 @@
+div{
+    font-size: 20px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+}
+h2{
+    display: flex;
+    justify-content: center;
+}
+li{
+    font-size: 20px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js" defer></script>
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <main>
+        <section>
+            <div class="row space-between persons-lists-container">
+                <div class="row">
+                    <ul id="students-list" class="students-list">
+                        <button id="new-student-btn">New student</button>
+                        <div class="add-student-menu column none">
+                            <input type="text" id="student-name-input" placeholder="Введите имя">
+                            <input type="text" id="student-surname-input" placeholder="Введите фамилию">
+                            <button id="add-student-btn">Add</button>
+                            <button>Cancel</button>
+                        </div>
+                        <li><h3>Students:</h3></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <ul id="teachers-list" class="teachers-list">
+                        <button id="new-teacher-btn">New teacher</button>
+                        <div class="add-teacher-menu column none">
+                            <input type="text" id="teacher-name-input" placeholder="Введите имя">
+                            <input type="text" id="teacher-surname-input" placeholder="Введите фамилию">
+                            <button id="add-teacher-btn">Add</button>
+                            <button>Cancel</button>
+                        </div>
+                        <li><h3>Teachers:</h3></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        </main>
+        <script type="text/template" id="students-template">
+            <li data-id="{{id}}" class="student-li">
+                <div class="row">
+                    {{surname}} {{name}},<p class="no-margin delete-p">X</p><br>
+                </div>
+                <div class="none">
+                    Courses: {{courses}}<br>
+                    Groups: {{groups}}<br>
+                </div>
+            </li>
+        </script>
+        <script type="text/template" id="teachers-template">
+            <li data-id="{{id}}" class="teacher-li">
+                <div class="row">
+                    {{surname}} {{name}},<p class="no-margin delete-p">X</p><br>
+                </div>
+                <div class="none">
+                    Courses: {{courses}}<br>
+                    Groups: {{groups}}<br>
+                </div>
+            </li>
+        </script>
+    </body>
+</html>
